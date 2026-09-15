@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino T-Rex Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="game-canvas" id="gameCanvas"></div>
+        <div class="game-over-screen" id="gameOverScreen">
+            <div class="game-over-text">GAME OVER</div>
+            <div class="final-score">Score: <span id="finalScore">0</span></div>
+            <button class="restart-btn" onclick="location.reload()">RESTART GAME</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

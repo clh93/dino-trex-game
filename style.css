@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    font-family: 'Arial', sans-serif;
+}
+
+.game-container {
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 100%);
+    border: 3px solid #333;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.score {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    z-index: 10;
+}
+
+.game-canvas {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.dino {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 50px;
+    height: 50px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.dino-idle {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><rect x="5" y="25" width="40" height="20" fill="%23228B22"/><rect x="10" y="15" width="25" height="15" fill="%23228B22"/><circle cx="28" cy="18" r="3" fill="%23000"/><rect x="3" y="40" width="8" height="8" fill="%23228B22"/><rect x="39" y="40" width="8" height="8" fill="%23228B22"/></svg>');
+}
+
+.dino.jump {
+    animation: jump 0.6s ease-out;
+}
+
+@keyframes jump {
+    0% { bottom: 0; }
+    50% { bottom: 150px; }
+    100% { bottom: 0; }
+}
+
+.obstacle {
+    position: absolute;
+    bottom: 0;
+    width: 30px;
+    height: 50px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 50"><rect x="5" y="10" width="20" height="35" fill="%23DC143C"/><polygon points="5,10 15,0 25,10" fill="%23DC143C"/><circle cx="10" cy="25" r="2" fill="%23000"/><circle cx="20" cy="25" r="2" fill="%23000"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.cloud {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 40"><ellipse cx="20" cy="25" rx="15" ry="12" fill="%23fff" opacity="0.8"/><ellipse cx="40" cy="20" rx="20" ry="15" fill="%23fff" opacity="0.8"/><ellipse cx="60" cy="25" rx="15" ry="12" fill="%23fff" opacity="0.8"/></svg>');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 20px;
+    background: repeating-linear-gradient(
+        90deg,
+        #8B7355 0px,
+        #8B7355 20px,
+        #A0826D 20px,
+        #A0826D 40px
+    );
+    border-top: 2px solid #654321;
+}
+
+.game-over-screen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.game-over-screen.show {
+    display: flex;
+}
+
+.game-over-text {
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.final-score {
+    font-size: 32px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.restart-btn {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.restart-btn:hover {
+    background-color: #45a049;
+}
